@@ -12,6 +12,10 @@ Sitio comercial con catálogo, productos destacados, ofertas, cotización por Wh
 
 Para una instalación antigua que ya tenga las tablas pero no los productos, importar `database/seed_products.sql`.
 
+Como alternativa, `database/deploy_database.sql` contiene una copia completa de la estructura y de los datos actuales de catálogo, categorías, imágenes, destacados, ofertas y medios. Por seguridad no contiene cuentas administradoras ni hashes de contraseñas.
+
+Las credenciales de producción no deben guardarse en Git. `config.example.php` admite las variables de entorno `LACUSTRE_DB_DSN`, `LACUSTRE_DB_USER` y `LACUSTRE_DB_PASS`. En un hosting sin variables de entorno, copia el archivo como `config.php`, completa allí las credenciales y mantén ese archivo fuera del repositorio.
+
 ## Contenido inicial
 
 - 24 productos publicados en el catálogo.
