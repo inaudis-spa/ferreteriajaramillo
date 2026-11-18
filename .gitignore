@@ -1,0 +1,23 @@
+# Configuración local y secretos
+config.php
+.env
+.env.*
+!.env.example
+
+# Archivos generados y subidos desde el panel
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Registros y temporales
+*.log
+*.tmp
+*.bak
+*.swp

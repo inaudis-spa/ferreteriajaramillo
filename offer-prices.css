@@ -1,0 +1,11 @@
+.product-prices{display:flex;align-items:baseline;gap:9px;margin-top:10px;white-space:nowrap}
+.product-prices del{color:#888;font-size:12px}
+.product-prices strong{color:#b42318;font-family:'Barlow Condensed',sans-serif;font-size:24px;line-height:1}
+.product-prices.price-consult{color:#777;font-size:11px;font-weight:700;text-transform:uppercase}
+.product-image .tag{z-index:2}
+.detail-prices{margin:22px 0;padding:18px 20px;background:#f5b900;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.detail-prices>span{text-transform:uppercase;font-size:10px;font-weight:800;letter-spacing:.1em}
+.detail-prices>div{display:flex;align-items:baseline;gap:14px}
+.detail-prices del{color:#665000;font-size:16px}
+.detail-prices strong{font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1}
+@media(max-width:600px){.product-prices{display:grid;gap:3px}.product-prices strong{font-size:21px}.detail-prices{padding:15px}.detail-prices strong{font-size:31px}}

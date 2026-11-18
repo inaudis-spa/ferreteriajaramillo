@@ -1,0 +1,13 @@
+USE ferreteria_lacustre;
+SET NAMES utf8mb4;
+UPDATE products SET name='Cámara de inspección' WHERE id=2;
+UPDATE products SET name='Escalera 8 peldaños' WHERE id=7;
+UPDATE products SET name='Tubería HDPE' WHERE id=10;
+UPDATE products SET name='Terminal de compresión' WHERE id=11;
+UPDATE products SET name='Grifería Piazza' WHERE id=13;
+UPDATE products SET name='Membrana hidrófuga' WHERE id=15;
+UPDATE products SET name='Alambre de púas' WHERE id=21;
+UPDATE products SET name='Clavo de techo 2 ½”' WHERE id=22;
+UPDATE categories SET name='Construcción' WHERE id=4;
+UPDATE site_media_slots SET label='Video de introducción' WHERE slot_key='intro_video';
+UPDATE product_images i JOIN products p ON p.id=i.product_id SET i.alt_text=p.name WHERE i.is_cover=1;
