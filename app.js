@@ -17,12 +17,13 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   intro.setAttribute('aria-hidden','true');
 }else{
   document.body.classList.add('intro-active');
-  const introDuration=4500;
-  introProgress.style.transition=`width ${introDuration}ms linear`;
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{introProgress.style.width='100%';}));
+  introVideo.loop=false;
+  const startProgress=()=>{const duration=Number.isFinite(introVideo.duration)&&introVideo.duration>0?introVideo.duration*1000:5000;introProgress.style.transition=`width ${duration}ms linear`;requestAnimationFrame(()=>requestAnimationFrame(()=>{introProgress.style.width='100%';}))};
+  if(introVideo.readyState>=1)startProgress();else introVideo.addEventListener('loadedmetadata',startProgress,{once:true});
+  introVideo.addEventListener('ended',closeIntro,{once:true});
   introVideo.addEventListener('error',closeIntro);
   document.querySelector('#skip-intro').addEventListener('click',closeIntro);
-  window.setTimeout(closeIntro,introDuration);
+  window.setTimeout(closeIntro,12000);
   const playAttempt=introVideo.play();
   if(playAttempt)playAttempt.catch(closeIntro);
 }
