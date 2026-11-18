@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
 
 INSERT INTO site_media_slots(slot_key,label,media_type,path) VALUES
-('brand_logo','Logo de la web','image','ferreterialacustre/logo-circular-de-ferreteria-lacustre.png'),
+('brand_logo','Logo de la web','image','ferreterialacustre/logo-circular-de-ferreteria-lacustre.webp'),
 ('hero_poster','Portada del video principal','image','ferreterialacustre/756620204_18117368666474540_4511804222887434583_n.jpg'),
 ('catalog_video','Video de cabecera del catalogo','video','ferreterialacustre/ferreteria-lacustre-mesa-magnetica-1.mp4')
 ON DUPLICATE KEY UPDATE label=VALUES(label),media_type=VALUES(media_type);

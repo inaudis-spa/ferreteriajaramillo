@@ -1,41 +1,38 @@
 # Ferretería Lacustre — sitio web
 
-Vitrina comercial y catálogo consultable para Ferretería Lacustre. Funciona como sitio estático (HTML, CSS y JavaScript), sin proceso de instalación.
+Sitio comercial con catálogo, productos destacados, ofertas, cotización por WhatsApp y panel administrativo.
 
-Al ingresar, `ferreteria-lacustre-cargainicio.mp4` se reproduce como presentación de carga. Puede omitirse, se cierra al terminar y no se muestra a quienes tienen activada la preferencia de movimiento reducido.
+## Instalación
 
-## Uso local
+1. Crear una base de datos MySQL llamada `ferreteria_lacustre`.
+2. Importar únicamente `database/schema.sql` usando codificación UTF-8. Este archivo crea las tablas y carga categorías, 24 productos, imágenes, destacados, ofertas y medios iniciales.
+3. Copiar `config.example.php` como `config.php` y configurar las credenciales de MySQL.
+4. Abrir `/instalar/` y crear el primer administrador.
+5. Ingresar al panel desde `/admin/`.
 
-Abrir `http://localhost/ferreterialacustre/` con Laragon iniciado. La web requiere PHP y MySQL para cargar el catálogo, por lo que no debe abrirse `index.html` directamente.
+Para una instalación antigua que ya tenga las tablas pero no los productos, importar `database/seed_products.sql`.
 
-## Instalación del mantenedor
+## Contenido inicial
 
-1. Importar `database/schema.sql` y luego `database/seed_products.sql` en MySQL usando codificación UTF-8 (`--default-character-set=utf8mb4` si se utiliza la consola).
-2. Copiar `config.example.php` como `config.php` y ajustar las credenciales de MySQL si corresponde.
-3. Abrir `/instalar/` desde el sitio y crear el primer administrador. El asistente se bloquea automáticamente después de crear la primera cuenta.
+- 24 productos publicados en el catálogo.
+- 8 productos destacados para la portada.
+- 3 productos marcados inicialmente como oferta.
+- Fotografías de producto vinculadas al catálogo.
+- Logo, videos y galería promocional configurados.
 
-   Como alternativa, puede crearse desde una terminal:
+Los productos iniciales no incluyen precios comerciales. Desde el panel se puede ingresar el precio normal, el precio oferta, stock, descripciones y estado de publicación.
 
-   `php scripts/create-admin.php correo@dominio.cl "una-clave-de-12-o-mas-caracteres" "Nombre"`
+## Administración
 
-4. Abrir `http://localhost/ferreterialacustre/admin/`.
+El panel permite administrar productos, categorías, fotos de producto, medios generales con historial y fotografías de ofertas. Las cargas se almacenan separadamente en `uploads/images` y `uploads/videos`.
 
-El panel permite administrar productos, categorías, fotos de producto, medios del sitio con historial y la biblioteca de fotos de ofertas. Las cargas quedan separadas en `uploads/images` y `uploads/videos`; Apache bloquea allí la ejecución de scripts.
-
-El catálogo completo está en `catalogo.html`. La portada consulta únicamente productos publicados marcados como **Destacado** en el mantenedor.
+La portada muestra únicamente productos que estén simultáneamente **publicados** y marcados como **destacados**. La página de ofertas muestra productos publicados con la opción **En oferta** activa.
 
 ## Flujo comercial
 
-- El visitante busca o filtra productos.
-- Agrega productos y cantidades a “Mi cotización”. La lista se conserva en el navegador.
-- La solicitud se envía al WhatsApp `+56 9 7291 2278`.
-- El mensaje es una consulta: no cobra, no reserva inventario ni crea una orden.
+- El visitante navega por el catálogo.
+- Agrega productos y cantidades a su cotización.
+- Ingresa nombre y teléfono.
+- Envía la solicitud al WhatsApp `+56 9 7291 2278`.
 
-## Contenido pendiente de confirmar
-
-- Direcciones exactas y horarios de Villarrica, Labranza y Cunco.
-- Políticas de retiro, despacho y cobertura.
-- Catálogo definitivo, precios, marcas y disponibilidad.
-- Dominio final para reemplazar la URL canónica relativa.
-
-Los productos actuales se construyeron exclusivamente a partir de las fotografías proporcionadas y se presentan sin precio ni promesa de stock.
+La solicitud no cobra, no reserva inventario ni genera automáticamente una orden.
